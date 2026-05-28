@@ -1,8 +1,8 @@
 <?php 
 
-    class LoginController {
+     class CadastroController {
 
-        public static function fazerLogin() {
+        public static function fazerCadastro() {
             include __DIR__ . '/../model/UsuarioModel.php';
         
             if($_SERVER['REQUEST_METHOD'] === 'POST'){
@@ -13,18 +13,12 @@
                 if(is_null($usuario) || is_null($senha)){
                     echo "Preencha os campos";
                     } else {
-                        if(fazerLogin($usuario, $senha)){
-                            session_start();
-                            $_SESSION['usuario'] = $usuario;
-                        header('location: ?p=home');
-                    } else {
-                        return false;
+                        addUsuario($usuario, password_hash($senha, PASSWORD_DEFAULT));
+                        header('location: ?p=fazer-login');
                     } 
                 }
-            }
-            include __DIR__ . '/../view/componentes/login.php';
+            include __DIR__ . '/../view/componentes/cadastro.php';
         }
-
-    }
+     }
 
 ?>

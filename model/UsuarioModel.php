@@ -1,9 +1,9 @@
 <?php 
 
-    // function addUsuario($usuario, $senha){
-    //     global $banco;
-    //     $banco->query("INSERT INTO usuarios (id, nome, senha) VALUES (null, '$usuario', '$senha');");
-    // }
+    function addUsuario($usuario, $senha){
+        global $pdo;
+        $pdo->query("INSERT INTO usuarios (id, nome, senha) VALUES (null, '$usuario', '$senha');");
+    }
 
     function fazerLogin($usuario, $senha){
 

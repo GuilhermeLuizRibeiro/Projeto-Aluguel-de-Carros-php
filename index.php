@@ -10,6 +10,7 @@
     echo $url;
     
     require "./controller/LoginController.php";
+    require "./controller/CadastroController.php";
     require "./controller/LogoutController.php";
     require "./controller/AluguelController.php";
     require "./controller/ContatoController.php";
@@ -19,6 +20,9 @@
 
     if($url == 'fazer-login'){
         LoginController::fazerLogin();
+    }
+    else if($url == 'cadastrar'){
+        CadastroController::fazerCadastro();
     }
 
     // DEIXEI COMENTANDO PARA SO MUDAR OS DADOS DEPOIS COM O QUE TEMOS
