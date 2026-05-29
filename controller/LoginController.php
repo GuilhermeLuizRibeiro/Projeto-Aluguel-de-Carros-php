@@ -4,14 +4,15 @@
 
         public static function fazerLogin() {
             include __DIR__ . '/../model/UsuarioModel.php';
+            include __DIR__ . '/../funcoes.php';
         
             if($_SERVER['REQUEST_METHOD'] === 'POST'){
                 
                 $usuario = $_POST['nome'] ?? null;
                 $senha = $_POST['senha'] ?? null;
                 
-                if(is_null($usuario) || is_null($senha)){
-                    echo "Preencha os campos";
+                if(validaCamposLogin($usuario, $senha)){
+                    echo "Preencha todos os campos";
                     } else {
                         if(fazerLogin($usuario, $senha)){
                             session_start();

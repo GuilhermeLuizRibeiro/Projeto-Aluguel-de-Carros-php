@@ -1,8 +1,8 @@
 <?php 
 
-    function addUsuario($usuario, $senha){
+    function addUsuario($usuario, $cpf, $dataNascimento, $email, $telefone, $senha){
         global $pdo;
-        $pdo->query("INSERT INTO usuarios (id, nome, senha) VALUES (null, '$usuario', '$senha');");
+        $pdo->query("INSERT INTO usuarios (id, nome, cpf, data_nascimento, email, telefone, senha) VALUES (null, '$usuario', '$cpf', '$dataNascimento', '$email', '$telefone', '$senha');");
     }
 
     function fazerLogin($usuario, $senha){
