@@ -1,18 +1,31 @@
 <?php 
 
     function validaCamposLogin($usuario, $senha){
-        if(is_null($usuario) || is_null($senha)) return true;
-        else return false;
+        return empty(trim((string) $usuario)) || empty(trim((string) $senha));
+    }
+
+    function validarCpf($cpf) {
+        empty(trim((string) $cpf));
+        $cpf = preg_replace('/[^0-9]/', '', $cpf);
+
+        if (strlen($cpf) !== 11) return false;
+        if (preg_match('/(\d)\1{10}/', $cpf)) return false;
+        return true;
     }
 
     function validaCamposCadastro($usuario, $cpf, $dataNascimento, $email, $telefone, $senha){
-        if(is_null($usuario) || is_null($senha) || is_null($cpf) || is_null($dataNascimento) || is_null($email) || is_null($telefone)) return false;
-        else return true;
+        return empty(trim((string) $usuario))
+            || empty(trim((string) $senha))
+            || !validarCpf($cpf)
+            || empty(trim((string) $dataNascimento))
+            || empty(trim((string) $email))
+            || empty(trim((string) $telefone));
     }
 
     function validaCamposRecuperarSenha($cpf, $dataNascimento, $novaSenha){
-        if(is_null($cpf) || is_null($dataNascimento) || is_null($novaSenha)) return true;
-        else return false;
+        return empty(trim((string) $cpf))
+            || empty(trim((string) $dataNascimento))
+            || empty(trim((string) $novaSenha));
     }
 
 ?>

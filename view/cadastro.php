@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<?php include_once __DIR__ . '/header.php'; ?>
+<?php include_once __DIR__ . '/componentes/header.php'; ?>
 
 <main class="auth-page auth-cadastro">
     <section class="auth-card auth-card-longo">
@@ -18,6 +18,14 @@
             <h1>Criar conta</h1>
             <p class="auth-subtitulo">Preencha seus dados para acessar o sistema e reservar veículos.</p>
         </div>
+
+        <?php if (!empty($mensagemErro)): ?>
+            <div class="auth-alert auth-alert-erro"><?= htmlspecialchars($mensagemErro) ?></div>
+        <?php endif; ?>
+
+        <?php if (!empty($mensagemSucesso)): ?>
+            <div class="auth-alert auth-alert-sucesso"><?= htmlspecialchars($mensagemSucesso) ?></div>
+        <?php endif; ?>
 
         <form method="post" class="auth-form auth-form-grid">
             <label class="auth-campo">
@@ -32,7 +40,7 @@
 
             <label class="auth-campo">
                 <span>CPF</span>
-                <input type="text" name="cpf" placeholder="000.000.000-00" required>
+                <input type="text" name="cpf" placeholder="000.000.000-00" required maxlength="11">
             </label>
 
             <label class="auth-campo">
@@ -42,7 +50,7 @@
 
             <label class="auth-campo auth-campo-full">
                 <span>Telefone</span>
-                <input type="text" name="telefone" placeholder="(00) 00000-0000" required>
+                <input type="text" name="telefone" placeholder="(00) 00000-0000" required maxlength="11">
             </label>
 
             <label class="auth-campo auth-campo-full">
