@@ -40,7 +40,7 @@
 
             <label class="auth-campo">
                 <span>CPF</span>
-                <input type="text" name="cpf" placeholder="000.000.000-00" required>
+                <input type="text" name="cpf" placeholder="000.000.000-00" required maxlength="11">
             </label>
 
             <label class="auth-campo">
@@ -50,7 +50,7 @@
 
             <label class="auth-campo auth-campo-full">
                 <span>Telefone</span>
-                <input type="text" name="telefone" placeholder="(00) 00000-0000" required>
+                <input type="text" name="telefone" placeholder="(00) 00000-0000" required maxlength="11">
             </label>
 
             <label class="auth-campo auth-campo-full">
